@@ -12,17 +12,7 @@ import com.guigu.instructional.po.StaffInfoExample.Criteria;
 import com.guigu.instructional.system.mapper.StaffInfoMapper;
 import com.guigu.instructional.system.service.StaffInfoService;
 
-/**       
- * <p>project_name:InstructionalManagement</p>
- * <p>package_name:com.guigu.instructional.system.service.impl.StaffInfoServiceImpl</p>
- * <p>description£º</p>
- * <p>@author£ºÁõÀÏÊ¦<p>   
- * <p> date:2018Äê1ÔÂ26ÈÕÉÏÎç8:59:08 </p>
- * <p>comments£º    </p>
- * <p>@version  jdk1.8</p>
- * 
- * <p>Copyright (c) 2018, 980991634@qq.com All Rights Reserved. </p>    
- */
+
 
 @Service("staffInfoServiceImpl")
 public class StaffInfoServiceImpl implements StaffInfoService {
@@ -66,21 +56,21 @@ public class StaffInfoServiceImpl implements StaffInfoService {
         
         Criteria criteria =staffInfoExample.createCriteria();
         if(staffInfo!=null) {
-            //¸ù¾Ýid²éÑ¯
+            //ï¿½ï¿½ï¿½ï¿½idï¿½ï¿½Ñ¯
             if(staffInfo.getStaffId()!=null) {
                 criteria.andStaffIdEqualTo(staffInfo.getStaffId());
             }
-            //¸ù¾Ýname²éÑ¯
+            //ï¿½ï¿½ï¿½ï¿½nameï¿½ï¿½Ñ¯
             if(staffInfo.getStaffName()!=null) {
                 staffInfo.setStaffName("%"+staffInfo.getStaffName()+"%");
                 criteria.andStaffNameLike(staffInfo.getStaffName());
             }
-            //¸ù¾Ýµç»°ºÅÂë²éÑ¯
+            //ï¿½ï¿½ï¿½Ýµç»°ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¯
             if(staffInfo.getStaffMobilePhone()!=null) {
                 criteria.andStaffMobilePhoneEqualTo(staffInfo.getStaffMobilePhone());
             }
-            //1´ú±íÕý³£  0´ú±íÉ¾³ý
-            //²éÑ¯ËùÓÐÕý³£µÄÔ±¹¤µÄÊý¾Ý
+            //1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  0ï¿½ï¿½ï¿½ï¿½É¾ï¿½ï¿½
+            //ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 //            staffInfo.setStaffState("1");
             
         }

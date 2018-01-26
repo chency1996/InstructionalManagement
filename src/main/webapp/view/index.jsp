@@ -249,10 +249,10 @@
 					</a>
 
 						<ul class="submenu">
-                            <li><a href="view/student/student/student_list.html" target="mainframe"> <i
+                            <li><a href="${pageContext.request.contextPath}/view/payment/studentpayment/studentpayment_list.jsp" target="mainframe"> <i
 									class="icon-double-angle-right"></i> 学员缴费
 							</a></li>
-                            <li><a href="view/student/evaluationinfo/evaluationinfo_list.html" target="mainframe"> <i
+                            <li><a href="${pageContext.request.contextPath}/payment/staffsalary/list.action" target="mainframe"> <i
 									class="icon-double-angle-right"></i> 员工薪水
 							</a></li>
                                                                                                                                          
