@@ -30,9 +30,9 @@
     <div class="col-sm-3">
     	<select class="form-control  input-sm" onchange="query(this)" name="condition">
         	<option value="">请选择</option>
-        	<option value="staffId">编号</option>
-            <option value="staffName">姓名</option>
-            <option value="staffMobilePhone">移动电话</option>
+        	<option value="paymentId">账单编号</option>
+            <option value="studentId">学生编号</option>
+            <option value="staffId">经办人编号</option>
         </select>
     </div>
     <div class="col-sm-3">
@@ -58,21 +58,21 @@
 	<table class="table  table-condensed table-striped">
     </table>
     <display:table class="table table-condensed table-striped" name="list" pagesize="10" requestURI="${pageContext.request.contextPath }/payment/studentpayment/list.action">
-    	<display:column property="payment_id" title="账单编号"></display:column>
-    	<display:column property="student_id" title="学生编号" ></display:column>
-    	<display:column property="staff_id" title="经办人"></display:column>
-    	<display:column property="payment_situtation" title="缴费情况"></display:column>
-    	<display:column property="payment_menthod" title="缴费方式"></display:column>
-    	<display:column property="payment_time" title="缴费时间" format="{0,date,yyyy年MM月dd日}"></display:column>
-    	<display:column property="payment_discount_amount" title="优惠金额" ></display:column>
-    	<display:column property="payment_should_amount" title="应缴金额"></display:column>
-    	<display:column property="payment_real_amount" title="实际交款"></display:column>
-    	<display:column property="payment_debt_amount" title="欠款"></display:column>
-    	<display:column property="payment_remark" title="备注"></display:column>
+    	<display:column property="paymentId" title="账单编号"></display:column>
+    	<display:column property="studentId" title="学生编号" ></display:column>
+    	<display:column property="staffId" title="经办人"></display:column>
+    	<display:column property="paymentSitutation" title="缴费情况"></display:column>
+    	<display:column property="paymentMenthod" title="缴费方式"></display:column>
+    	<display:column property="paymentTime" title="缴费时间" format="{0,date,yyyy年MM月dd日}"></display:column>
+    	<display:column property="paymentDiscountAmount" title="优惠金额" ></display:column>
+    	<display:column property="paymentShouldAmount" title="应缴金额"></display:column>
+    	<display:column property="paymentRealAmount" title="实际交款"></display:column>
+    	<display:column property="paymentDebtAmount" title="欠款"></display:column>
+    	<display:column property="paymentRemark" title="备注"></display:column>
     	
-    	
-    	<display:column href="${pageContext.request.contextPath }/system/staffinfo/load.action" paramId="staffId" paramProperty="staffId" value="修改" title="修改"></display:column>
-    	<display:column href="${pageContext.request.contextPath }/system/staffinfo/delete.action" paramId="staffId" paramProperty="staffId" value="删除" title="删除"></display:column>
+
+    	<display:column href="${pageContext.request.contextPath }/payment/studentpayment/load.action" paramId="paymentId" paramProperty="paymentId" value="修改" title="修改"></display:column>
+    	<display:column href="${pageContext.request.contextPath }/payment/studentpayment/delete.action" paramId="paymentId" paramProperty="paymentId" value="删除" title="删除"></display:column>
     	
     </display:table>
     

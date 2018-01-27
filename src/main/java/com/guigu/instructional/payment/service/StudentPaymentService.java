@@ -18,6 +18,7 @@ public interface StudentPaymentService {
 	   
 	    public StudentPayment getStudentPayment(Integer paymentId);
 	    
+	    public boolean deleteStudentPayment(Integer paymentId);
 	    
 	}
 	

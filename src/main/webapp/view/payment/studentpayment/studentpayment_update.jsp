@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -14,19 +15,19 @@
  <ul class="breadcrumb" style="  margin:0px; " >
     	<li><a href="#">财务管理</a></li>
         <li>学员缴费</li>
-        <li>添加账单</li>
+        <li>修改账单</li>
     </ul>
 </div>
 
 
 
 
-<form action="${pageContext.request.contextPath}/payment/studentpayment/add.action" class="form-horizontal">
+<form action="${pageContext.request.contextPath}/payment/studentpayment/update.action" class="form-horizontal">
    	<div class="row">
     	<div class="col-sm-3 col-sm-offset-4">
         	<input  type="submit" class="btn btn-success" value="保存"/>
             <input  type="reset" class="btn  btn-danger" value="取消"/>
-            <a href="${pageContext.request.contextPath }/payment/studentpayment/list.action" class="btn btn-success">返回上一级</a>
+               <a href="${pageContext.request.contextPath }/payment/studentpayment/list.action" class="btn btn-success">返回上一级</a>
         </div>
     </div>
     <h5 class="page-header alert-info" style="padding:10px; margin:0px; margin-bottom:5px;">基本信息</h5>
@@ -35,7 +36,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">编号</label>
                 <div class="col-sm-9">
-                	<input type="text" name="paymentId" readonly="readonly" class="form-control input-sm" placeholder="请输入编号"/>
+                	<input type="text" name="paymentId" value="${studentPayment.paymentId }" readonly="readonly" class="form-control input-sm" placeholder="请输入编号"/>
                 </div>
             </div>       
         </div>
@@ -43,7 +44,7 @@
             <div class="form-group">
             	<label class="col-sm-3 control-label">学生编号</label>
                 <div class="col-sm-9">
-                	<input type="text" name="studentId" class="form-control input-sm" placeholder="请输入学生编号"/>
+                	<input type="text" name="studentId" value="${studentPayment.studentId }" class="form-control input-sm" placeholder="请输入学生编号"/>
                 </div>
             </div>
         </div>
@@ -55,7 +56,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">经办人编号</label>
                 <div class="col-sm-5">
-                	<input type="text" name="staffId" class="form-control input-sm" placeholder="请输入经办人编号"/>
+                	<input type="text" name="staffId" value="${studentPayment.staffId }" class="form-control input-sm" placeholder="请输入经办人编号"/>
                 </div>
             </div>       
         </div>
@@ -63,7 +64,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">缴费情况</label>
                 <div class="col-sm-5">
-                	<input type="text" name="paymentSitutation" class="form-control input-sm" placeholder="缴费情况"/>
+                	<input type="text" name="paymentSitutation"  value="${studentPayment.paymentSitutation } " class="form-control input-sm" placeholder="缴费情况"/>
                 </div>
             </div>     
         </div>
@@ -88,7 +89,8 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">缴费日期</label>
                 <div class="col-sm-9">
-                	<input type="text" name="paymentTime" onclick="WdatePicker()" readonly="readonly" class="form-control input-sm" placeholder="请输入缴费日期"/>
+                	<input type="text" name="paymentTime" value="<fmt:formatDate value="${studentPayment.paymentTime}" type="both" pattern="yyyy-MM-dd"/>" onclick="WdatePicker()" readonly="readonly" class="form-control input-sm" placeholder="请输入缴费日期"/>
+                
                 </div>
             </div>
         </div>
@@ -102,7 +104,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">应缴金额</label>
                 <div class="col-sm-9">
-                <input type="text" name="paymentShouldAmount" class="form-control input-sm" placeholder="请输入应缴金额"/>
+                <input type="text" name="paymentShouldAmount" value="${studentPayment.paymentShouldAmount } " class="form-control input-sm" placeholder="请输入应缴金额"/>
                 </div>
             </div>
         </div>
@@ -110,7 +112,7 @@
             <div class="form-group">
             	<label class="col-sm-3 control-label">优惠金额</label>
                 <div class="col-sm-9">
-                <input type="text" name="paymentDiscountAmount" class="form-control input-sm" placeholder="请输入优惠金额"/>
+                <input type="text" name="paymentDiscountAmount" value="${studentPayment.paymentDiscountAmount }"  class="form-control input-sm" placeholder="请输入优惠金额"/>
                 </div>
             </div>
         </div>
@@ -122,7 +124,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">实缴金额</label>
                 <div class="col-sm-9">
-                	<input type="text" name="paymentRealAmount" class="form-control input-sm" placeholder="请输入实缴金额"/>
+                	<input type="text" name="paymentRealAmount" value="${studentPayment.paymentRealAmount }"  class="form-control input-sm" placeholder="请输入实缴金额"/>
                 </div>
             </div>
         
@@ -131,27 +133,28 @@
             <div class="form-group">
             	<label class="col-sm-3 control-label">欠款</label>
                 <div class="col-sm-9">
-                <input type="text" name="paymentDebtAmount" class="form-control input-sm" placeholder="请输入欠款"/>
+                <input type="text" name="paymentDebtAmount"  value="${studentPayment.paymentDebtAmount }"  class="form-control input-sm" placeholder="请输入欠款"/>
                 </div>
             </div>
         </div>
     </div>
+    <!-- 结束4 -->    
+ 
     
-     <h5 class="page-header alert-info" style="padding:10px; margin:0px; margin-bottom:5px;">备注</h5>
+    
+    <h5 class="page-header alert-info" style="padding:10px; margin:0px; margin-bottom:5px;">备注</h5>
     	<div class="row">
     	<div class="col-sm-10">
         	<div class="form-group">
             	<label class="col-sm-3 control-label">备注</label>
                 <div class="col-sm-9">
-                	<textarea class="form-control" name="paymentRemark"></textarea>
+                	<textarea class="form-control" name="paymentRemark">${studentPayment.paymentRemark }</textarea>
                 </div>
             </div>
         
         </div>
 
     </div>
-    
-    
     
     
     

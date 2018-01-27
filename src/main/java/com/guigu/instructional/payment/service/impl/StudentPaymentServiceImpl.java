@@ -8,45 +8,95 @@ import org.springframework.stereotype.Service;
 
 import com.guigu.instructional.payment.mapper.StudentPaymentMapper;
 import com.guigu.instructional.payment.service.StudentPaymentService;
+import com.guigu.instructional.po.StaffInfo;
+import com.guigu.instructional.po.StaffInfoExample;
 import com.guigu.instructional.po.StudentPayment;
+import com.guigu.instructional.po.StudentPaymentExample;
+import com.guigu.instructional.po.StudentPaymentExample.Criteria;
 
 
 @Service("StudentPaymentServiceImpl")
-public class StudentPaymentServiceImpl implements StudentPaymentService{
+public class StudentPaymentServiceImpl implements StudentPaymentService {
 
-	@Resource(name ="studentPaymentMapper")
+	@Resource(name = "studentPaymentMapper")
 	private StudentPaymentMapper studentPaymentMapper;
-	
+
 	@Override
 	public boolean addStudentPayment(StudentPayment studentPayment) {
 		try {
-            int i = studentPaymentMapper.insertSelective(studentPayment);
-            if (i > 0) {
-                return true;
-            }
-        } catch (Exception e) {
+			int i = studentPaymentMapper.insertSelective(studentPayment);
+			if (i > 0) {
+				return true;
+			}
+		} catch (Exception e) {
 
-        }
+		}
 
-        return false;
-	}
-
-	@Override
-	public boolean updateStudentPayment(StudentPayment studentPayment) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public List<StudentPayment> getStudentPayment(StudentPayment StudentPayment) {
-		// TODO Auto-generated method stub
-		return null;
+	public boolean updateStudentPayment(StudentPayment studentPayment) {
+		  try {
+	            int i = studentPaymentMapper.updateByPrimaryKey(studentPayment);
+	            if (i > 0) {
+	                return true;
+	            }
+	        } catch (Exception e) {
+
+	        }
+
+	        return false;
 	}
+	
+	
+
+	@Override
+	public List<StudentPayment> getStudentPayment(StudentPayment studentPayment) {
+
+		StudentPaymentExample studentPaymentExample = new StudentPaymentExample();
+		
+		Criteria criteria = studentPaymentExample.createCriteria();
+		if (studentPayment != null) {
+			
+			if (studentPayment.getPaymentId()!= null) {
+				criteria.andPaymentIdEqualTo(studentPayment.getPaymentId());
+			}
+			
+			if (studentPayment.getStudentId()!= null) {
+				criteria.andStudentIdEqualTo(studentPayment.getStudentId());
+			}
+			
+			if (studentPayment.getStaffId()!= null) {
+				criteria.andStaffIdEqualTo(studentPayment.getStaffId());
+			}
+		
+
+		}
+
+		return studentPaymentMapper.selectByExample(studentPaymentExample);
+	}
+	
+	
+	
 
 	@Override
 	public StudentPayment getStudentPayment(Integer paymentId) {
-		// TODO Auto-generated method stub
-		return null;
+		return studentPaymentMapper.selectByPrimaryKey(paymentId);
+	}
+
+	@Override
+	public boolean deleteStudentPayment(Integer paymentId) {
+		try {
+			int i = studentPaymentMapper.deleteByPrimaryKey(paymentId);
+			if (i > 0) {
+				return true;
+			}
+		} catch (Exception e) {
+
+		}
+
+		return false;
 	}
 
 }

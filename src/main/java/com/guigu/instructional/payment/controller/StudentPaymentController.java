@@ -1,5 +1,7 @@
 package com.guigu.instructional.payment.controller;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
@@ -19,18 +21,60 @@ public class StudentPaymentController {
 	private StudentPaymentService studentPaymentService;
 	
 	   @RequestMapping("add.action")
-	    public String addStaffInfo(StudentPayment studentPayment,Model model) {
+	    public String addStudentPayment(StudentPayment studentPayment,Model model) {
 	       
 	       boolean result= studentPaymentService.addStudentPayment(studentPayment);
 	       if(result) {
-	           model.addAttribute("info","success");
+	           model.addAttribute("info","-AddSuccess");
 	       }else {
-	           model.addAttribute("info","Failure");
+	           model.addAttribute("info","-AddFailure");
 	       }
 	       
-	       System.err.println(studentPayment);
-	       return null;
+	       return this.list(null, model);
 	       
+	    }
+	   
+	   @RequestMapping("delete.action")
+	    public String deleteStudentPayment(Integer paymentId,Model model) {
+	       
+	       boolean result= studentPaymentService.deleteStudentPayment(paymentId);
+	       if(result) {
+	           model.addAttribute("info","-DeleteSuccess");
+	       }else {
+	           model.addAttribute("info","-DeleteFailure");
+	       }
+	       
+	       return this.list(null, model);
+	       
+	    }
+	   
+	   @RequestMapping("update.action")
+	    public String updateStudentPayment(StudentPayment studentPayment,Model model) {
+	       
+	       boolean result= studentPaymentService.updateStudentPayment(studentPayment);
+	       if(result) {
+	           model.addAttribute("info","-UpdateSuccess");
+	       }else {
+	           model.addAttribute("info","-UpdateFailure");
+	       }
+	       
+	       return this.list(null, model);
+	       
+	    }
+	   
+	   @RequestMapping("load.action")
+	    public String loadUpate(Integer paymentId,Model model) {
+	       StudentPayment studentPayment = studentPaymentService.getStudentPayment(paymentId);
+	        model.addAttribute("studentPayment", studentPayment);
+	        return "payment/studentpayment/studentpayment_update";
+	    }
+	   
+	   @RequestMapping("list.action")
+	    public String list(StudentPayment studentPayment,Model model) {
+	        List<StudentPayment> list =studentPaymentService.getStudentPayment(studentPayment);
+	        model.addAttribute("list", list);
+	        
+	        return "payment/studentpayment/studentpayment_list";
 	    }
 
 }

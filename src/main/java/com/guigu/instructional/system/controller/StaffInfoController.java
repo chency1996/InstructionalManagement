@@ -16,10 +16,10 @@ import com.guigu.instructional.system.service.StaffInfoService;
 /**       
  * <p>project_name:InstructionalManagement</p>
  * <p>package_name:com.guigu.instructional.system.controller.StaffInfoController</p>
- * <p>description£º</p>
- * <p>@author£ºÁõÀÏÊ¦<p>   
- * <p> date:2018Äê1ÔÂ26ÈÕÉÏÎç9:15:58 </p>
- * <p>comments£º    </p>
+ * <p>descriptionï¿½ï¿½</p>
+ * <p>@authorï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¦<p>   
+ * <p> date:2018ï¿½ï¿½1ï¿½ï¿½26ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½9:15:58 </p>
+ * <p>commentsï¿½ï¿½    </p>
  * <p>@version  jdk1.8</p>
  * 
  * <p>Copyright (c) 2018, 980991634@qq.com All Rights Reserved. </p>    
@@ -31,15 +31,14 @@ public class StaffInfoController {
     @Resource(name = "staffInfoServiceImpl")
     private StaffInfoService staffInfoService;
 
-    // ½øÐÐÊý¾ÝÐ£Ñé  ÄãÃÇµÄ¹¦ÄÜ
     @RequestMapping("add.action")
     public String addStaffInfo(StaffInfo staffInfo,Model model) {
        staffInfo.setStaffState("1");
        boolean result= staffInfoService.addStaff(staffInfo);
        if(result) {
-           model.addAttribute("info","Ìí¼Ó³É¹¦");
+           model.addAttribute("info","ï¿½ï¿½Ó³É¹ï¿½");
        }else {
-           model.addAttribute("info","Ìí¼ÓÊ§°Ü");
+           model.addAttribute("info","ï¿½ï¿½ï¿½Ê§ï¿½ï¿½");
        }
        return this.list(null, model);
        
@@ -72,9 +71,9 @@ public class StaffInfoController {
     public String updateStaffInfo(StaffInfo staffInfo,Model model) {
         boolean result=staffInfoService.updateStaff(staffInfo);
         if(result) {
-            model.addAttribute("info", "ÐÞ¸Ä³É¹¦");
+            model.addAttribute("info", "ï¿½Þ¸Ä³É¹ï¿½");
         }else {
-            model.addAttribute("info", "ÐÞ¸ÄÊ§°Ü");
+            model.addAttribute("info", "ï¿½Þ¸ï¿½Ê§ï¿½ï¿½");
         }
         return this.list(null, model);
     }
@@ -82,14 +81,14 @@ public class StaffInfoController {
     @RequestMapping("delete.action")
     public String deleteStaffInfo(StaffInfo staffInfo,Model model) {
         
-        //ÉèÖÃÔ±¹¤Îª 0   ´ú±íÎÞÐ§
+        //ï¿½ï¿½ï¿½ï¿½Ô±ï¿½ï¿½Îª 0   ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§
         staffInfo.setStaffState("0");
         
         boolean result =staffInfoService.updateStaff(staffInfo);
         if(result) {
-            model.addAttribute("info", "É¾³ý³É¹¦");
+            model.addAttribute("info", "É¾ï¿½ï¿½ï¿½É¹ï¿½");
         }else {
-            model.addAttribute("info", "É¾³ýÊ§°Ü");
+            model.addAttribute("info", "É¾ï¿½ï¿½Ê§ï¿½ï¿½");
         }
         return this.list(null, model);
     }

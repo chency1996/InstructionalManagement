@@ -56,22 +56,16 @@ public class StaffInfoServiceImpl implements StaffInfoService {
         
         Criteria criteria =staffInfoExample.createCriteria();
         if(staffInfo!=null) {
-            //����id��ѯ
             if(staffInfo.getStaffId()!=null) {
                 criteria.andStaffIdEqualTo(staffInfo.getStaffId());
             }
-            //����name��ѯ
             if(staffInfo.getStaffName()!=null) {
                 staffInfo.setStaffName("%"+staffInfo.getStaffName()+"%");
                 criteria.andStaffNameLike(staffInfo.getStaffName());
             }
-            //���ݵ绰�����ѯ
             if(staffInfo.getStaffMobilePhone()!=null) {
                 criteria.andStaffMobilePhoneEqualTo(staffInfo.getStaffMobilePhone());
             }
-            //1��������  0����ɾ��
-            //��ѯ����������Ա��������
-//            staffInfo.setStaffState("1");
             
         }
         criteria.andStaffStateEqualTo("1");
