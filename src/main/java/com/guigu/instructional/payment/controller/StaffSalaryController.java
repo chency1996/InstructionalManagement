@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.guigu.instructional.payment.service.StaffSalaryService;
 import com.guigu.instructional.po.StaffSalary;
+import com.guigu.instructional.po.StaffSalaryCustom;
 import com.guigu.instructional.po.StudentPayment;
 
 @Controller
@@ -21,7 +22,7 @@ public class StaffSalaryController {
 	
 	
 	 @RequestMapping("add.action")
-	    public String addStaffSalary(StaffSalary staffSalary,Model model) {
+	    public String addStaffSalary(StaffSalary staffSalary,Model model) throws Exception {
 	       
 	       boolean result= staffSalaryService.addStaffSalary(staffSalary);
 	       if(result) {
@@ -35,7 +36,7 @@ public class StaffSalaryController {
 	    }
 	   
 	   @RequestMapping("delete.action")
-	    public String deleteStaffSalary(Integer staffSalaryId,Model model) {
+	    public String deleteStaffSalary(Integer staffSalaryId,Model model) throws Exception {
 	       
 	       boolean result= staffSalaryService.deleteStaffSalary(staffSalaryId);
 	       if(result) {
@@ -49,7 +50,7 @@ public class StaffSalaryController {
 	    }
 	   
 	   @RequestMapping("update.action")
-	    public String updateStaffSalary(StaffSalary staffSalary,Model model) {
+	    public String updateStaffSalary(StaffSalary staffSalary,Model model) throws Exception {
 	       
 	       boolean result= staffSalaryService.updateStaffSalary(staffSalary);
 	       if(result) {
@@ -70,8 +71,8 @@ public class StaffSalaryController {
 	    }
 	   
 	   @RequestMapping("list.action")
-	    public String list(StaffSalary staffSalary,Model model) {
-	        List<StaffSalary> list =staffSalaryService.getStaffSalary(staffSalary);
+	    public String list(StaffSalary staffSalary,Model model) throws Exception {
+	        List<StaffSalaryCustom> list =staffSalaryService.findStaffSalaryList(staffSalary);
 	        model.addAttribute("list", list);
 	        
 	        return "payment/staffsalary/staffsalary_list";

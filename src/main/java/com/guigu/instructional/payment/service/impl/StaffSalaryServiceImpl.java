@@ -6,9 +6,11 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import com.guigu.instructional.payment.mapper.StaffSalaryCustomMapper;
 import com.guigu.instructional.payment.mapper.StaffSalaryMapper;
 import com.guigu.instructional.payment.service.StaffSalaryService;
 import com.guigu.instructional.po.StaffSalary;
+import com.guigu.instructional.po.StaffSalaryCustom;
 import com.guigu.instructional.po.StaffSalaryExample;
 import com.guigu.instructional.po.StaffSalaryExample.Criteria;
 
@@ -18,6 +20,9 @@ public class StaffSalaryServiceImpl implements StaffSalaryService {
 	@Resource(name = "staffSalaryMapper")
 	private StaffSalaryMapper staffSalaryMapper;
 
+	@Resource(name = "staffSalaryCustomMapper")
+	private StaffSalaryCustomMapper staffSalaryCustomMapper;
+	
 	@Override
 	public boolean addStaffSalary(StaffSalary staffSalary) {
 		try {
@@ -87,6 +92,11 @@ public class StaffSalaryServiceImpl implements StaffSalaryService {
 		}
 
 		return false;
+	}
+
+	@Override
+	public List<StaffSalaryCustom> findStaffSalaryList(StaffSalary staffSalary) throws Exception {
+		return staffSalaryCustomMapper.findStaffSalaryList(staffSalary);
 	}
 
 }

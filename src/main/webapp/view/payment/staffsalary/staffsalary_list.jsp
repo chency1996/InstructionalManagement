@@ -60,8 +60,8 @@
     </table>
     <display:table class="table table-condensed table-striped" name="list" pagesize="10" requestURI="${pageContext.request.contextPath }/payment/staffsalary/list.action">
     	<display:column property="staffSalaryId" title="工资单编号"></display:column>
-    	<display:column property="staffId" title="领取人编号" ></display:column>
-    	<display:column property="staStaffId" title="财务人员编号"></display:column>
+    	<display:column property="staffName" title="领取人"  href="${pageContext.request.contextPath }/system/staffinfo/show.action" paramId="staffId" paramProperty="staffId"></display:column>
+    	<display:column property="staStaffName" title="财务人员"></display:column>
     	<display:column property="staffSalaryTotal" title="本月薪水"></display:column>
     	<display:column property="staffSalaryDeduct" title="扣除"></display:column>
     	<display:column property="staffSalaryReal" title="实际发放" ></display:column>
