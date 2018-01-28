@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.guigu.instructional.payment.service.StudentPaymentService;
 import com.guigu.instructional.po.StaffInfo;
 import com.guigu.instructional.po.StudentPayment;
+import com.guigu.instructional.po.StudentPaymentCustom;
 
 @Controller
 @RequestMapping("/payment/studentpayment/")
@@ -21,7 +22,7 @@ public class StudentPaymentController {
 	private StudentPaymentService studentPaymentService;
 	
 	   @RequestMapping("add.action")
-	    public String addStudentPayment(StudentPayment studentPayment,Model model) {
+	    public String addStudentPayment(StudentPayment studentPayment,Model model) throws Exception {
 	       
 	       boolean result= studentPaymentService.addStudentPayment(studentPayment);
 	       if(result) {
@@ -35,7 +36,7 @@ public class StudentPaymentController {
 	    }
 	   
 	   @RequestMapping("delete.action")
-	    public String deleteStudentPayment(Integer paymentId,Model model) {
+	    public String deleteStudentPayment(Integer paymentId,Model model) throws Exception {
 	       
 	       boolean result= studentPaymentService.deleteStudentPayment(paymentId);
 	       if(result) {
@@ -49,7 +50,7 @@ public class StudentPaymentController {
 	    }
 	   
 	   @RequestMapping("update.action")
-	    public String updateStudentPayment(StudentPayment studentPayment,Model model) {
+	    public String updateStudentPayment(StudentPayment studentPayment,Model model) throws Exception {
 	       
 	       boolean result= studentPaymentService.updateStudentPayment(studentPayment);
 	       if(result) {
@@ -70,8 +71,8 @@ public class StudentPaymentController {
 	    }
 	   
 	   @RequestMapping("list.action")
-	    public String list(StudentPayment studentPayment,Model model) {
-	        List<StudentPayment> list =studentPaymentService.getStudentPayment(studentPayment);
+	    public String list(StudentPayment studentPayment,Model model) throws Exception {
+	        List<StudentPaymentCustom> list =studentPaymentService.findStudentPaymentList(studentPayment);
 	        model.addAttribute("list", list);
 	        
 	        return "payment/studentpayment/studentpayment_list";

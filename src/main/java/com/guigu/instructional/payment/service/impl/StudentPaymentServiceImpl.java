@@ -6,11 +6,13 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import com.guigu.instructional.payment.mapper.StudentPaymentCustomMapper;
 import com.guigu.instructional.payment.mapper.StudentPaymentMapper;
 import com.guigu.instructional.payment.service.StudentPaymentService;
 import com.guigu.instructional.po.StaffInfo;
 import com.guigu.instructional.po.StaffInfoExample;
 import com.guigu.instructional.po.StudentPayment;
+import com.guigu.instructional.po.StudentPaymentCustom;
 import com.guigu.instructional.po.StudentPaymentExample;
 import com.guigu.instructional.po.StudentPaymentExample.Criteria;
 
@@ -20,6 +22,10 @@ public class StudentPaymentServiceImpl implements StudentPaymentService {
 
 	@Resource(name = "studentPaymentMapper")
 	private StudentPaymentMapper studentPaymentMapper;
+	
+	@Resource(name="studentPaymentCustomMapper")
+	private StudentPaymentCustomMapper studentPaymentCustomMapper;
+	
 
 	@Override
 	public boolean addStudentPayment(StudentPayment studentPayment) {
@@ -97,6 +103,11 @@ public class StudentPaymentServiceImpl implements StudentPaymentService {
 		}
 
 		return false;
+	}
+
+	@Override
+	public List<StudentPaymentCustom> findStudentPaymentList(StudentPayment studentPayment) throws Exception {
+		return studentPaymentCustomMapper.findStudentPaymentList(studentPayment);
 	}
 
 }

@@ -59,8 +59,8 @@
     </table>
     <display:table class="table table-condensed table-striped" name="list" pagesize="10" requestURI="${pageContext.request.contextPath }/payment/studentpayment/list.action">
     	<display:column property="paymentId" title="账单编号"></display:column>
-    	<display:column property="studentId" title="学生编号" ></display:column>
-    	<display:column property="staffId" title="经办人"></display:column>
+    	<display:column property="studentName" title="学生编号" ></display:column>
+    	<display:column property="staffName" title="经办人"></display:column>
     	<display:column property="paymentSitutation" title="缴费情况"></display:column>
     	<display:column property="paymentMenthod" title="缴费方式"></display:column>
     	<display:column property="paymentTime" title="缴费时间" format="{0,date,yyyy年MM月dd日}"></display:column>
