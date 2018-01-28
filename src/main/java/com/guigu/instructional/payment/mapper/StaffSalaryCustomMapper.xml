@@ -22,7 +22,22 @@
 		<result column="stastaff_name" property="staStaffName" jdbcType="VARCHAR" />
 	</resultMap>
 
+<sql id="query_where">
 
+		staff.staff_id=salary.staff_id and stastaff.staff_id=salary.sta_staff_id
+		
+
+		 	<if test="staffSalaryId!=null and staffSalaryId!=''">
+		 		and salary.staff_salary_id like '%${staffSalaryId}%'
+		 	</if>
+		 	<if test="staffId!=null and staffId!=''">
+		 		and salary.staff_id like '%${staffId}%'
+		 	</if>
+		 	<if test="staStaffId!=null and staStaffId!=''">
+		 		and salary.sta_staff_id like '%${staStaffId}%'
+		 	</if>
+
+	</sql>
 
 	<select id="findStaffSalaryList" parameterType="com.guigu.instructional.po.StaffSalary"
 		resultMap="BaseResultMap">
@@ -30,9 +45,12 @@
 		salary.*,staff.staff_name,stastaff.staff_name stastaff_name
 		from
 		staff_info staff,staff_salary salary,staff_info stastaff
-		where
-		staff.staff_id=salary.staff_id and stastaff.staff_id=salary.sta_staff_id
+		
+		<where>
+			<include refid="query_where"></include>
+		</where>
 	</select>
+	
 
 
 </mapper>

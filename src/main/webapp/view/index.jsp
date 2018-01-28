@@ -198,7 +198,7 @@
                              <li><a href="view/classinfo/syllabusinfo/syllabusinfo_list.html" target="mainframe"> <i
 									class="icon-double-angle-right"></i> 课程表
 							</a></li>   
-                            <li><a href="view/classinfo/teacher/teacher_list.html" target="mainframe"> <i
+                            <li><a href="${pageContext.request.contextPath }/system/staffinfo/list.action" target="mainframe">  <i
 									class="icon-double-angle-right"></i> 教师管理
 							</a></li>    
                             <li><a href="view/classinfo/classinfo/classinfo_list.html" target="mainframe"> <i
