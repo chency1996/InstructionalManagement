@@ -9,7 +9,9 @@ import org.springframework.stereotype.Service;
 import com.guigu.instructional.po.StaffInfo;
 import com.guigu.instructional.po.StaffInfoExample;
 import com.guigu.instructional.po.StaffInfoExample.Criteria;
+import com.guigu.instructional.po.StaffTeachers;
 import com.guigu.instructional.system.mapper.StaffInfoMapper;
+import com.guigu.instructional.system.mapper.StaffTeachersMapper;
 import com.guigu.instructional.system.service.StaffInfoService;
 
 
@@ -21,7 +23,11 @@ public class StaffInfoServiceImpl implements StaffInfoService {
     // @Qualifier
     @Resource(name = "staffInfoMapper")
     private StaffInfoMapper staffInfoMapper;
-
+    
+    
+    @Resource(name = "staffTeachersMapper")
+    private StaffTeachersMapper staffTeachersMapper;
+    
     @Override
     public boolean addStaff(StaffInfo staffInfo) {
         try {
@@ -79,5 +85,11 @@ public class StaffInfoServiceImpl implements StaffInfoService {
         
         return staffInfoMapper.selectByPrimaryKey(staffId);
     }
+
+	@Override
+	public List<StaffTeachers> findStaffTeachers(StaffInfo staffInfo) throws Exception {
+		
+		return staffTeachersMapper.findStaffTeachers(staffInfo);
+	}
 
 }

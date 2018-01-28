@@ -7,5 +7,5 @@ import com.guigu.instructional.po.StaffSalaryCustom;
 
 public interface StaffSalaryCustomMapper {
 
-	public List<StaffSalaryCustom> findStaffSalaryList(StaffSalary staffSalary)throws Exception;
+	public List<StaffSalaryCustom> findStaffSalaryList(StaffSalary staffSalary);
 }

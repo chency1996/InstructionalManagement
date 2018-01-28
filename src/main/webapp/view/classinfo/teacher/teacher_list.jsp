@@ -39,7 +39,7 @@
     	<input type="text"  id="keyword"  class="form-control input-sm"/>
     </div>
     <input type="submit"   class="btn btn-danger"   value="查询"/>
-    <input type="button"   class="btn btn-success"   value="添加" onClick="javascript:window.location='${pageContext.request.contextPath}/view/system/staffinfo/staffinfo_add.jsp'"/>
+    <input type="button"   class="btn btn-success"   value="添加" onClick="javascript:window.location='${pageContext.request.contextPath}/view/classinfo/teacher/teacher_add.jsp'"/>
  </form>
 </div>
 
@@ -57,16 +57,16 @@
 <div class="row" style="padding:15px; padding-top:0px; " align="right">
 	<table class="table  table-condensed table-striped">
     </table>
-    <display:table class="table table-condensed table-striped" name="list" pagesize="10" requestURI="${pageContext.request.contextPath }/system/staffinfo/list.action">
+    <display:table class="table table-condensed table-striped" name="list" pagesize="10" requestURI="${pageContext.request.contextPath }/system/staffinfo/teacherlist.action">
     	<display:column property="staffId" title="编号"></display:column>
     	<display:column property="staffName" title="姓名" href="${pageContext.request.contextPath }/system/staffinfo/show.action" paramId="staffId" paramProperty="staffId"></display:column>
     	<display:column property="staffAge" title="年龄"></display:column>
-    	<display:column property="staffId" title="编号"></display:column>
+    	
     	<display:column property="staffMobilePhone" title="移动电话"></display:column>
     	<display:column property="staffEmail" title="邮箱"></display:column>
     	<display:column property="staffEntryTime" title="入职时间" format="{0,date,yyyy年MM月dd日}"></display:column>
     	<display:column property="staffEducationLevel" title="教育水平"></display:column>
-    	<display:column href="${pageContext.request.contextPath }/system/staffinfo/load.action" paramId="staffId" paramProperty="staffId" value="修改" title="修改"></display:column>
+    	<display:column href="${pageContext.request.contextPath }/system/staffinfo/teacherload.action" paramId="staffId" paramProperty="staffId" value="修改" title="修改"></display:column>
     	<display:column href="${pageContext.request.contextPath }/system/staffinfo/delete.action" paramId="staffId" paramProperty="staffId" value="删除" title="删除"></display:column>
     	
     </display:table>

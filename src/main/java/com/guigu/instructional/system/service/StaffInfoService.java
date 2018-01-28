@@ -3,14 +3,15 @@ package com.guigu.instructional.system.service;
 import java.util.List;
 
 import com.guigu.instructional.po.StaffInfo;
+import com.guigu.instructional.po.StaffTeachers;
 
 /**       
  * <p>project_name:InstructionalManagement</p>
  * <p>package_name:com.guigu.instructional.system.service.StaffInfoService</p>
- * <p>description£º</p>
- * <p>@author£ºÁõÀÏÊ¦<p>   
- * <p> date:2018Äê1ÔÂ26ÈÕÉÏÎç8:55:29 </p>
- * <p>comments£º    </p>
+ * <p>descriptionï¿½ï¿½</p>
+ * <p>@authorï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¦<p>   
+ * <p> date:2018ï¿½ï¿½1ï¿½ï¿½26ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½8:55:29 </p>
+ * <p>commentsï¿½ï¿½    </p>
  * <p>@version  jdk1.8</p>
  * 
  * <p>Copyright (c) 2018, 980991634@qq.com All Rights Reserved. </p>    
@@ -19,8 +20,8 @@ import com.guigu.instructional.po.StaffInfo;
 public interface StaffInfoService {
     
     /**
-     * addStaff:Ìí¼ÓÔ±¹¤ÐÅÏ¢
-     * @author ÁõÀÏÊ¦
+     * addStaff:ï¿½ï¿½ï¿½Ô±ï¿½ï¿½ï¿½ï¿½Ï¢
+     * @author ï¿½ï¿½ï¿½ï¿½Ê¦
      * @param staffInfo
      * @return  <br/> 
      * @since JDK 1.8
@@ -28,8 +29,8 @@ public interface StaffInfoService {
     public boolean addStaff(StaffInfo staffInfo);
     
     /**
-     * updateStaff:¸üÐÂÔ±¹¤Êý¾Ý
-     * @author ÁõÀÏÊ¦
+     * updateStaff:ï¿½ï¿½ï¿½ï¿½Ô±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     * @author ï¿½ï¿½ï¿½ï¿½Ê¦
      * @param staffInfo
      * @return  <br/>
      * @since JDK 1.8
@@ -37,8 +38,8 @@ public interface StaffInfoService {
     public boolean updateStaff(StaffInfo staffInfo);
     
     /**
-     * getStaffInfo:¸ù¾ÝÌõ¼þ²éÑ¯Ô±¹¤ÐÅÏ¢
-     * @author ÁõÀÏÊ¦
+     * getStaffInfo:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¯Ô±ï¿½ï¿½ï¿½ï¿½Ï¢
+     * @author ï¿½ï¿½ï¿½ï¿½Ê¦
      * @param staffInfo
      * @return  <br/>
      * @since JDK 1.8
@@ -47,15 +48,15 @@ public interface StaffInfoService {
     
     
     /**
-     * getStaffInfo:¸ù¾ÝÔ±¹¤±àºÅ²éÑ¯Ô±¹¤ÐÅÏ¢
-     * @author ÁõÀÏÊ¦
+     * getStaffInfo:ï¿½ï¿½ï¿½ï¿½Ô±ï¿½ï¿½ï¿½ï¿½Å²ï¿½Ñ¯Ô±ï¿½ï¿½ï¿½ï¿½Ï¢
+     * @author ï¿½ï¿½ï¿½ï¿½Ê¦
      * @param staffId
      * @return  <br/>
      * @since JDK 1.8
      */
     public StaffInfo getStaffInfo(Integer staffId);
     
-    
+    public List<StaffTeachers> findStaffTeachers(StaffInfo staffInfo)throws Exception;
 }
 
 

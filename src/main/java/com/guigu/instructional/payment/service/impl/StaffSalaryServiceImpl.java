@@ -96,8 +96,7 @@ public class StaffSalaryServiceImpl implements StaffSalaryService {
 
 	@Override
 	public List<StaffSalaryCustom> findStaffSalaryList(StaffSalary staffSalary) throws Exception {
-			System.out.println(staffSalary.getStaffSalaryId());
-			
+		
 			
 		return staffSalaryCustomMapper.findStaffSalaryList(staffSalary);
 		
