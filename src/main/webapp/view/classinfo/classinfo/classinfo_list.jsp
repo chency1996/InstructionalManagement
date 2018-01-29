@@ -10,21 +10,34 @@
 </head>
 
 <body>
+	<script type="text/javascript">
+		function query(condition){
+			$("#keyword").attr("name",condition.value);
+		}
+	</script>
 	<div style="padding: 0px; margin: 0px;">
 		<ul class="breadcrumb" style="margin: 0px;">
-			<li><a href="#">班级管理</a></li>
-			<li>班级信息</li>
+			<li><a href="${pageContext.request.contextPath}/classinfo/classinfo/list.action">班级信息</a></li>
 		</ul>
 	</div>
 	<form class="form-inline">
 		<div class="row alert alert-info" style="margin: 0px; padding: 3px;">
-			<div class="form-group">
-				<label class="" for="activename">班级名称：</label>
-				<input type="text" class="form-control" id="activename" placeholder="请输入班级名称">
+		<form class="form-horizontal" action="${pageContext.request.contextPath}/classinfo/classinfo/list.action" method="post">
+			<div class="col-sm-1">查询条件：</div>
+			<div class="col-sm-3">
+		    	<select class="form-control  input-sm" onchange="query(this)" name="condition">
+		        	<option value="">请选择</option>
+		        	<option value="classId">班级编号</option>
+		            <option value="className">班级名称</option>
+		        </select>
+	    	</div>
+			<div class="col-sm-3">
+				<input type="text" class="form-control" id="keyword" placeholder="请输入">
 			</div>
-			<input type="submit" class="btn btn-danger" value="查询" />
+			<input type="submit" class="btn btn-danger" value="查询"/>
 			<input type="button" class="btn btn-success" value="添加" onclick="javascript:window.location='${pageContext.request.contextPath}/view/classinfo/classinfo/classinfo_add.jsp'" />
-		</div>
+		</form>
+	</div>
 		<div class="row" style="padding: 15px; padding-top: 0px;">
 			<table class="table  table-condensed table-striped">
 			</table>
