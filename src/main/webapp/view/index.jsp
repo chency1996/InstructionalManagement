@@ -189,19 +189,19 @@
 
 						<ul class="submenu">
 							
-                            <li><a href="view/classinfo/disciplineinfo/disciplineinfo_list.html" target="mainframe"> <i
+                            <li><a href="${pageContext.request.contextPath}/classinfo/disciplineinfo/list.action" target="mainframe"> <i
 									class="icon-double-angle-right"></i> 学科信息
 							</a></li>
-                            <li><a href="view/classinfo/classroominfo/classroominfo_list.html" target="mainframe"> <i
+                            <li><a href="${pageContext.request.contextPath}/classinfo/classroominfo/list.action" target="mainframe"> <i
 									class="icon-double-angle-right"></i> 教室信息
 							</a></li>
-                             <li><a href="view/classinfo/syllabusinfo/syllabusinfo_list.html" target="mainframe"> <i
+                             <li><a href="${pageContext.request.contextPath}/classinfo/syllabusinfo/list.action" target="mainframe"> <i
 									class="icon-double-angle-right"></i> 课程表
 							</a></li>   
                             <li><a href="${pageContext.request.contextPath }/system/staffinfo/teacherlist.action" target="mainframe">  <i
 									class="icon-double-angle-right"></i> 教师管理
 							</a></li>    
-                            <li><a href="view/classinfo/classinfo/classinfo_list.html" target="mainframe"> <i
+                            <li><a href="${pageContext.request.contextPath}/classinfo/classinfo/list.action" target="mainframe"> <i
 									class="icon-double-angle-right"></i> 班级管理
 							</a></li>                                                           
 						</ul>

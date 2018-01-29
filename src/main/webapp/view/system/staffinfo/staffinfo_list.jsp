@@ -40,7 +40,7 @@
     </div>
     <input type="submit"   class="btn btn-danger"   value="查询"/>
     <input type="button"   class="btn btn-success"   value="添加" onClick="javascript:window.location='${pageContext.request.contextPath}/view/classinfo/teacher/teacher_add.jsp'"/>
- </form>
+</form>
 </div>
 
 <div align="center">
@@ -61,7 +61,6 @@
     	<display:column property="staffId" title="编号"></display:column>
     	<display:column property="staffName" title="姓名" href="${pageContext.request.contextPath }/system/staffinfo/show.action" paramId="staffId" paramProperty="staffId"></display:column>
     	<display:column property="staffAge" title="年龄"></display:column>
-    	
     	<display:column property="staffMobilePhone" title="移动电话"></display:column>
     	<display:column property="staffEmail" title="邮箱"></display:column>
     	<display:column property="staffEntryTime" title="入职时间" format="{0,date,yyyy年MM月dd日}"></display:column>
