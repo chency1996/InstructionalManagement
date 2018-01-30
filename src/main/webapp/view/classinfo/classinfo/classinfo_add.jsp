@@ -20,15 +20,6 @@
 
     <h5 class="page-header alert-info" style="padding:10px; margin:0px; margin-bottom:5px;">基本信息</h5>
 	<div class="row">
-    	<div class="col-sm-5">
-        	<div class="form-group">
-            	<label class="col-sm-3 control-label">班级编号</label>
-                <div class="col-sm-9">
-                	<input type="text" name="classId" class="form-control input-sm" placeholder="请输入编号"/>
-                </div>
-            </div>
-        
-        </div>
         <div class="col-sm-5">
             <div class="form-group">
             	<label class="col-sm-3 control-label">班级名称</label>
@@ -37,26 +28,35 @@
                 </div>
             </div>
         </div>
-
+		<div class="col-sm-5">
+        	<div class="form-group">
+            	<label class="col-sm-3 control-label">教室</label>
+                <div class="col-sm-9">
+               	   <select name="classroomId" class="form-control input-sm">
+                     	<option>培训室一</option>
+                        <option>培训室二</option>
+                     </select>
+                </div>
+            </div>
+        </div>
     </div>
     
     <div class="row">
     	<div class="col-sm-5">
         	<div class="form-group">
-            	<label class="col-sm-3 control-label">开班日期</label>
+            	<label class="col-sm-3 control-label">开课日期</label>
                 <div class="col-sm-9">
-               			<input type="text" name="classStartTime" class="form-control input-sm" placeholder="请输入开班日期"/>
+                	<input type="text" name="classStartTime" onclick="WdatePicker()" readonly="readonly" class="form-control input-sm" placeholder="请输入开课日期"/>
                 </div>
             </div>
         </div>
     	<div class="col-sm-5">
         	<div class="form-group">
-            	<label class="col-sm-3 control-label">结束日期</label>
+            	<label class="col-sm-3 control-label">结课日期</label>
                 <div class="col-sm-9">
-               		 <input type="text" name="classEndTime" class="form-control input-sm" placeholder="请输入结束日期"/>
+                	<input type="text" name="classEndTime" onclick="WdatePicker()" readonly="readonly" class="form-control input-sm" placeholder="请输入结课日期"/>
                 </div>
             </div>
-        
         </div>
 
     </div>
@@ -65,7 +65,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">班级人数</label>
                 <div class="col-sm-9">
-               			<input type="text" name="" class="form-control input-sm" placeholder="请输入班级人数"/>
+               			<input type="text" name="classNumber" class="form-control input-sm" placeholder="请输入班级人数"/>
                 </div>
             </div>
         </div>
@@ -106,20 +106,6 @@
                 </div>
             </div>
 
-        </div>
-
-    </div>
-           <div class="row">
-    	<div class="col-sm-5">
-        	<div class="form-group">
-            	<label class="col-sm-3 control-label">教室</label>
-                <div class="col-sm-9">
-               	   <select name="classroomId" class="form-control input-sm">
-                     	<option>培训室一</option>
-                        <option>培训室二</option>
-                     </select>
-                </div>
-            </div>
         </div>
 
     </div>

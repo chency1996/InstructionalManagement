@@ -39,19 +39,19 @@
 				<input type="text" id="keyword" class="form-control input-sm" />
 			</div>
 			<input type="submit" class="btn btn-danger" value="查询" />
-			<input type="button" class="btn btn-success" value="添加" onClick="javascript:window.location='${pageContext.request.contextPath}/view/classinfo/classroominfo/classroom_add.jsp'" />
+			<input type="button" class="btn btn-success" value="添加" onClick="javascript:window.location='${pageContext.request.contextPath}/view/classinfo/classroominfo/classroominfo_add.jsp'" />
 		</form>
 	</div>
-		<div class="row" style="padding: 15px; padding-top: 0px;">
-			<table class="table  table-condensed table-striped"></table>
-			<display:table class="table table-condensed table-striped" name="list" pagesize="10" requestURI="${pageContext.request.contextPath }/classinfo/classroominfo/list.action">
-				<display:column property="classroomId" title="教室编号"></display:column>
-				<display:column property="classroomName" title="教室姓名" href="${pageContext.request.contextPath }/classinfo/classroominfo/show.action" paramId="classroomId" paramProperty="classroomId"></display:column>
-				<display:column property="classroomMax" title="教室容量"></display:column>
-				<display:column property="classroomInfo" title="设备信息"></display:column>
-				<display:column href="${pageContext.request.contextPath }/classinfo/classroominfo/load.action" paramId="classroomId" paramProperty="classroomId" value="修改" title="修改"></display:column>
-				<display:column href="${pageContext.request.contextPath }/classinfo/classroominfo/delete.action" paramId="classroomId" paramProperty="classroomId" value="删除" title="删除"></display:column>
+	<div class="row" style="padding: 15px; padding-top: 0px;">
+		<table class="table  table-condensed table-striped"></table>
+		<display:table class="table table-condensed table-striped" name="list" pagesize="10" requestURI="${pageContext.request.contextPath }/classinfo/classroominfo/list.action">
+			<display:column property="classroomId" title="教室编号"></display:column>
+			<display:column property="classroomName" title="教室名称" href="${pageContext.request.contextPath }/classinfo/classroominfo/show.action" paramId="classroomId" paramProperty="classroomId"></display:column>
+			<display:column property="classroomMax" title="教室容量"></display:column>
+			<display:column property="classroomInfo" title="设备信息"></display:column>
+			<display:column href="${pageContext.request.contextPath }/classinfo/classroominfo/load.action" paramId="classroomId" paramProperty="classroomId" value="修改" title="修改"></display:column>
+			<display:column href="${pageContext.request.contextPath }/classinfo/classroominfo/delete.action" paramId="classroomId" paramProperty="classroomId" value="删除" title="删除"></display:column>
 		</display:table>
-		</div>
+	</div>
 </body>
 </html>

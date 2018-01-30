@@ -39,16 +39,16 @@ public class ClassroomInfoController {
 	}
 
 	@RequestMapping("show.action")
-	public String showClassroomInfo(Integer classId, Model model) {
-		ClassroomInfo classroomInfo = classroomInfoService.getClassroomInfo(classId);
+	public String showClassroomInfo(Integer classroomId, Model model) {
+		ClassroomInfo classroomInfo = classroomInfoService.getClassroomInfo(classroomId);
 		model.addAttribute("classroomInfo", classroomInfo);
 		return "classinfo/classroominfo/classroominfo_show";
 
 	}
 
 	@RequestMapping("load.action")
-	public String loadUpate(Integer classId, Model model) {
-		ClassroomInfo classroomInfo = classroomInfoService.getClassroomInfo(classId);
+	public String loadUpate(Integer classroomId, Model model) {
+		ClassroomInfo classroomInfo = classroomInfoService.getClassroomInfo(classroomId);
 		model.addAttribute("classroomInfo", classroomInfo);
 		return "classinfo/classroominfo/classroominfo_update";
 	}
