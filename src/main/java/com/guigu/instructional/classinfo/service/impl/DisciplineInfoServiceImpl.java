@@ -61,7 +61,7 @@ public class DisciplineInfoServiceImpl implements DisciplineInfoService{
 				criteria.andDisciplineNameLike(disciplineInfo.getDisciplineName());
 			}
 			if(disciplineInfo.getDisciplineTuition()!=null) {
-				criteria.andDisciplineTuitionEqualTo(disciplineInfo.getDisciplineTuition());
+				criteria.andDisciplineTuitionLessThanOrEqualTo(disciplineInfo.getDisciplineTuition());
 			}
 		}
 		criteria.andDisciplineIsusedEqualTo("1");

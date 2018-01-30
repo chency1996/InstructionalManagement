@@ -128,7 +128,7 @@
             <div class="form-group">
             	<label class="col-sm-3 control-label">移动电话</label>
                 <div class="col-sm-9">
-                <input type="text" name="staffMobilePhone"   value="${staffInfo.staffMobilePhone}" class="form-control input-sm" placeholder="请输入移动电话"/>
+                <input type="text" name="staffMobilePhone" value="${staffInfo.staffMobilePhone}" class="form-control input-sm" placeholder="请输入移动电话"/>
                 </div>
             </div>
         </div>

@@ -57,7 +57,7 @@ public class ClassrommInfoServiceImpl implements ClassroomInfoService{
 		
 		if(classroomInfo !=null) {
 			if(classroomInfo.getClassroomId()!=null) {
-				criteria.andClassroomIdEqualTo(classroomInfo.getClassroomId());
+				criteria.andClassroomIdLessThanOrEqualTo(classroomInfo.getClassroomId());
 			}
 			if(classroomInfo.getClassroomName()!=null) {
 				classroomInfo.setClassroomName("%" + classroomInfo.getClassroomName() + "%");

@@ -1,15 +1,12 @@
-<!doctype html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta charset="utf-8">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>首页</title>
-<!-- 新 Bootstrap 核心 CSS 文件 -->
-<link rel="stylesheet" href="../../../css/bootstrap.min.css">
-<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-<script src="../../../js/jquery.min.js"></script>
-<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-<script src="../../../js/bootstrap.min.js"></script>
+<%@ include file="/view/public/common.jspf" %>
 </head>
 
 <body>
@@ -21,7 +18,7 @@
     </ul>
 </div>
 
-<form action="" class="form-horizontal">
+<form action="${pageContext.request.contextPath }/classinfo/disciplineinfo/update.action" class="form-horizontal">
 
     <h5 class="page-header alert-info" style="padding:10px; margin:0px; margin-bottom:5px;">基本信息</h5>
 	<div class="row">
@@ -29,7 +26,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">编号</label>
                 <div class="col-sm-9">
-                	<input type="text" name="" class="form-control input-sm" placeholder="请输入编号"/>
+                	<input type="text" name="disciplineId" value="${disciplineInfo.disciplineId}" readonly="readonly" class="form-control input-sm" placeholder="请输入编号"/>
                 </div>
             </div>
         
@@ -38,7 +35,7 @@
             <div class="form-group">
             	<label class="col-sm-3 control-label">学科名称</label>
                 <div class="col-sm-9">
-                	<input type="text" name="" class="form-control input-sm" placeholder="请输入学科名称"/>
+                	<input type="text" name="disciplineName" value="${disciplineInfo.disciplineName}" class="form-control input-sm" placeholder="请输入学科名称"/>
                 </div>
             </div>
         </div>
@@ -49,7 +46,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">学科费用</label>
                 <div class="col-sm-9">
-               			<input type="text" name="" class="form-control input-sm" placeholder="请输入学科费用"/>
+               			<input type="text" name="disciplineTuition" value="${disciplineInfo.disciplineTuition}" class="form-control input-sm" placeholder="请输入学科费用"/>
                 </div>
             </div>
         </div>
@@ -57,7 +54,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">学科课时</label>
                 <div class="col-sm-9">
-               		 <input type="text" name="" class="form-control input-sm" placeholder="请输入学科课时"/>
+               		 <input type="text" name="disciplineBring" value="${disciplineInfo.disciplineBring}" class="form-control input-sm" placeholder="请输入学科课时"/>
                 </div>
             </div>
         
@@ -71,19 +68,16 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">描述</label>
                 <div class="col-sm-9">
-                	<textarea class="form-control"></textarea>
+                	<textarea class="form-control" value="${disciplineInfo.disciplineDesc}" name="disciplineDesc"></textarea>
                 </div>
             </div>
-        
         </div>
-
     </div>
  
    	<div class="row">
     	<div class="col-sm-3 col-sm-offset-4">
         	<input  type="submit" class="btn btn-success" value="保存"/>
-
-              <a class="btn btn-warning" href="disciplineinfo_list.html">返回上一级</a>
+        	<a class="btn btn-warning" href="${pageContext.request.contextPath }/classinfo/disciplineinfo/list.action">返回上一级</a>
         </div>
     </div>
 </form>

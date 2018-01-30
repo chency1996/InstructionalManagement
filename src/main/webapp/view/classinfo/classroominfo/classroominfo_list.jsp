@@ -13,7 +13,7 @@
 	<div style="padding: 0px; margin: 0px;">
 		<ul class="breadcrumb" style="margin: 0px;">
 			<li><a href="#">班级管理</a></li>
-			<li>教室名称</li>
+			<li>教室信息</li>
 		</ul>
 	</div>
 	<script type="text/javascript">
@@ -46,7 +46,7 @@
 		<table class="table  table-condensed table-striped"></table>
 		<display:table class="table table-condensed table-striped" name="list" pagesize="10" requestURI="${pageContext.request.contextPath }/classinfo/classroominfo/list.action">
 			<display:column property="classroomId" title="教室编号"></display:column>
-			<display:column property="classroomName" title="教室名称" href="${pageContext.request.contextPath }/classinfo/classroominfo/show.action" paramId="classroomId" paramProperty="classroomId"></display:column>
+			<display:column property="classroomName" title="教室名称"></display:column>
 			<display:column property="classroomMax" title="教室容量"></display:column>
 			<display:column property="classroomInfo" title="设备信息"></display:column>
 			<display:column href="${pageContext.request.contextPath }/classinfo/classroominfo/load.action" paramId="classroomId" paramProperty="classroomId" value="修改" title="修改"></display:column>
